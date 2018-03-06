@@ -3,7 +3,7 @@
 This project is developed with Intellij IDEA, Angular 5 and Java 8 
 
 ## License 
-This project is a part of Master Thesis from [IAAS](http://www.iaas.uni-stuttgart.de/) department of [Uni-Stuttgart](https://www.uni-stuttgart.de/). All the rights are reserved. 
+This project is a part of Master Thesis from [IAAS](http://www.iaas.uni-stuttgart.de/) department of [University of Stuttgart](https://www.uni-stuttgart.de/). All the rights are reserved. 
 The concepts and implementations created in this thesis are compatible with the Apache v2.0 license. 
 The source codes are published under the Apache v2.0 license as well as under the Eclipse public license, [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.php)
 
@@ -14,7 +14,7 @@ If you only need to use the application (without extending), then do the followi
 * <b>Install</b>
     * Install [JRE 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
     * Install a Web application container software. (Recommended: [Tomcat 9](https://tomcat.apache.org/download-90.cgi))
-    * Download the war file (transformation-analyzer.war) from the setup folder of this [GitHub account](https://github.com/mustafaakilli/master-thesis)
+    * Download the war file (transformation-analyzer.war) from the setup folder or use this [link](https://github.com/mustafaakilli/master-thesis/raw/master/setup/transformation-analyzer.war)
     * Copy the war file to `{tomcat-installed-folder}\webapps\`
     * Double click to the file in `{tomcat-installed-folder}\bin\startup`
     * Type `http://localhost:8080/transformation-analyzer/` in a browser such as Chrome.
