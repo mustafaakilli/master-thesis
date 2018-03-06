@@ -14,7 +14,7 @@ If you only need to use the application (without extending), then do the followi
 * <b>Install</b>
     * Install [JRE 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
     * Install a Web application container software. (Recommended: [Tomcat 9](https://tomcat.apache.org/download-90.cgi))
-    * Download only the war file (transformation-analyzer.war) from the [GitHub](https://github.com/mustafaakilli/master-thesis)
+    * Download the war file (transformation-analyzer.war) from the setup folder of this [GitHub account](https://github.com/mustafaakilli/master-thesis)
     * Copy the war file to `{tomcat-installed-folder}\webapps\`
     * Double click to the file in `{tomcat-installed-folder}\bin\startup`
     * Type `http://localhost:8080/transformation-analyzer/` in a browser such as Chrome.
