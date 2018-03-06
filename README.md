@@ -7,6 +7,8 @@ This project is a part of Master Thesis from [IAAS](http://www.iaas.uni-stuttgar
 The concepts and implementations created in this thesis are compatible with the Apache v2.0 license. 
 The source codes are published under the Apache v2.0 license as well as under the Eclipse public license, [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.php)
 
+Copyright (c) 2018 University of Stuttgart
+
 ## Information for Users
 If you only need to use the application (without extending), then do the followings.
 * <b>Install</b>
