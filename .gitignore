@@ -1,7 +1,6 @@
 .gradle/
 .idea/
 .project
-.settings/org.eclipse.m2e.core.pref
 release.properties
 **/*.bak
 **/*.iml
