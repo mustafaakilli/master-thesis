@@ -1,0 +1,128 @@
+<div class="float-left" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Create a new communication </p>
+
+  <form [formGroup]="userForm" novalidate style="border: 1px solid #ccc; padding: 10px;">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <span style="color: red;float: right;">* required</span>
+      <input [(ngModel)]="communicationName" placeholder="Please enter a unique communication name.." class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label style="display: none;" for="name">Base Type</label>
+      <input [(ngModel)]="baseType" style="display: none;" class="form-control" formControlName="baseType">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Communication Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListCommunicationType" [(ngModel)]="selectedItemsCommunicationType"
+                            [settings]="settingsCommunicationType" formControlName="communicationType">
+      </angular2-multiselect>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Communication Pattern</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListCommunicationPattern" [(ngModel)]="selectedItemsCommunicationPattern"
+                            [settings]="settingsCommunicationPattern" formControlName="communicationPattern">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Request Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListRequestType" [(ngModel)]="selectedItemsRequestType"
+                            [settings]="settingsRequestType" formControlName="requestType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Header Size</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListHeaderSize" [(ngModel)]="selectedItemsHeaderSize"
+                            [settings]="settingsHeaderSize" formControlName="headerSize">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Payload Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListPayloadType" [(ngModel)]="selectedItemsPayloadType"
+                            [settings]="settingsPayloadType" formControlName="payloadType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Payload Size</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListPayloadSize" [(ngModel)]="selectedItemsPayloadSize"
+                            [settings]="settingsPayloadSize" formControlName="payloadSize">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Security Type</label>
+      <span style="color: blue;float: right;">* leave empty for none</span>
+      <angular2-multiselect [data]="itemListSecurityType" [(ngModel)]="selectedItemsSecurityType"
+                            [settings]="settingsSecurityType" formControlName="securityType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Authentication Type</label>
+      <span style="color: blue;float: right;">* leave empty for none</span>
+      <angular2-multiselect [data]="itemListAuthenticationType" [(ngModel)]="selectedItemsAuthenticationType"
+                            [settings]="settingsAuthenticationType" formControlName="authenticationType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">QoS Type</label>
+      <span style="color: blue;float: right;">* leave empty for none</span>
+      <angular2-multiselect [data]="itemListQosType" [(ngModel)]="selectedItemsQosType"
+                            [settings]="settingsQosType" formControlName="qosType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">IoT Level</label>
+      <span style="color: blue;float: right;">* leave empty for none</span>
+      <angular2-multiselect [data]="itemListIotLevel" [(ngModel)]="selectedItemsIotLevel"
+                            [settings]="settingsIotLevel" formControlName="iotLevel">
+      </angular2-multiselect>
+    </div>
+
+
+    <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+  </form>
+</div>
+
+<div class="float-left" style="width:10%;height:auto;"></div>
+
+<div class="float-right" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">.. or customize a communication </p>
+
+  <div>
+    <angular2-multiselect [data]="itemListBaseCommunication" [(ngModel)]="selectedItemsBaseCommunication"
+                          [settings]="settingsBaseCommunication"
+                          (onSelect)="onItemSelectBaseCommunication($event)"
+                          (onDeSelect)="OnItemDeSelectBaseCommunication($event)">
+    </angular2-multiselect>
+  </div>
+
+  <div class="pre-scrollable" style="border: 1px solid #ccc; margin:50px 0px 15px 0px;min-height: 150px; max-height: 300px;">
+    <h5 style="margin:10px 0px 0px 0px;color:rgb(78,132,145);font-style: oblique; font-weight: bold">Output</h5>
+    <p class="text-left" style="margin:10px 0px 15px 0px;color:rgb(0,90,145);" [innerHTML]="outputWindowText"></p>
+  </div>
+
+</div>

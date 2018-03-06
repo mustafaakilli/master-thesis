@@ -1,0 +1,83 @@
+{
+  "name" : "DDS",
+  "baseType" : "DDS",
+  "communicationType" : [ {
+    "id" : 6,
+    "itemName" : "Data-Centric Brokerless Messaging"
+  } ],
+  "communicationPattern" : [ {
+    "id" : 1,
+    "itemName" : "Fire/Forget"
+  }, {
+    "id" : 2,
+    "itemName" : "Request/Response"
+  }, {
+    "id" : 3,
+    "itemName" : "Publish/Subscribe"
+  }, {
+    "id" : 4,
+    "itemName" : "Multicast"
+  } ],
+  "requestType" : [ {
+    "id" : 2,
+    "itemName" : "Not Blocking (Async.)"
+  } ],
+  "headerSize" : [ {
+    "id" : 2,
+    "itemName" : "Medium"
+  }, {
+    "id" : 3,
+    "itemName" : "Large"
+  }, {
+    "id" : 1,
+    "itemName" : "Small"
+  } ],
+  "payloadType" : [ {
+    "id" : 1,
+    "itemName" : "Text"
+  }, {
+    "id" : 2,
+    "itemName" : "Binary Array"
+  }, {
+    "id" : 3,
+    "itemName" : "Various MIME Types"
+  } ],
+  "payloadSize" : [ {
+    "id" : 1,
+    "itemName" : "Small"
+  }, {
+    "id" : 2,
+    "itemName" : "Large"
+  } ],
+  "securityType" : [ {
+    "id" : 3,
+    "itemName" : "Has own complex layer"
+  } ],
+  "authenticationType" : [ {
+    "id" : 3,
+    "itemName" : "Has own complex layer"
+  } ],
+  "qosType" : [ {
+    "id" : 1,
+    "itemName" : "TCP"
+  }, {
+    "id" : 2,
+    "itemName" : "3-level QOS"
+  }, {
+    "id" : 3,
+    "itemName" : "Complex"
+  } ],
+  "iotLevel" : [ {
+    "id" : 1,
+    "itemName" : "Device to Device"
+  }, {
+    "id" : 2,
+    "itemName" : "Device to Gateway"
+  }, {
+    "id" : 3,
+    "itemName" : "Gateway to Server"
+  }, {
+    "id" : 4,
+    "itemName" : "Server to Server"
+  } ]
+}

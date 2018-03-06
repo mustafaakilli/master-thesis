@@ -1,0 +1,465 @@
+// The following information is now coming from JSON files. They don't have any usage now.
+// Saved here just to be safe, in case something goes wrong and hardcoded way is needed :)
+
+  ngOnInit()
+  {
+
+    this.restProxy.setCommunicationComp(this);
+
+    this.itemListCommunicationType = [
+      { "id": 1, "itemName": "Brokered Messaging" },
+      { "id": 2, "itemName": "Brokerless Messaging" },
+      { "id": 3, "itemName": "Client/Server One-directional" },
+      { "id": 4, "itemName": "Client/Server Bi-directional" },
+    ];
+
+    this.selectedItemsCommunicationType = [];
+
+    this.settingsCommunicationType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Communication Type", singleSelection: false,
+    };
+
+
+    this.itemListCommunicationPattern = [
+      { "id": 1, "itemName": "Fire/Forget" },
+      { "id": 2, "itemName": "Request/Response" },
+      { "id": 3, "itemName": "Publish/Subscribe" },
+      { "id": 4, "itemName": "Multicasting" },
+    ];
+
+    this.selectedItemsCommunicationPattern = [];
+
+    this.settingsCommunicationPattern = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Communication Pattern", singleSelection: false,
+    };
+
+
+
+    this.itemListRequestType = [
+      { "id": 1, "itemName": "Blocking (Sync.)" },
+      { "id": 2, "itemName": "Not Blocking (Aync.)" },
+    ];
+
+    this.selectedItemsRequestType = [];
+
+    this.settingsRequestType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Request Type", singleSelection: false,
+    };
+
+
+    this.itemListHeaderSize = [
+      { "id": 1, "itemName": "Small" },
+      { "id": 2, "itemName": "Medium" },
+      { "id": 3, "itemName": "Large" },
+    ];
+
+    this.selectedItemsHeaderSize = [];
+
+    this.settingsHeaderSize = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Header Size", singleSelection: false,
+    };
+
+
+    this.itemListPayloadType = [
+      { "id": 1, "itemName": "Text" },
+      { "id": 2, "itemName": "Binary" },
+      { "id": 3, "itemName": "Various MIME Types" },
+    ];
+
+    this.selectedItemsPayloadType = [];
+
+    this.settingsPayloadType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Payload Type", singleSelection: false,
+    };
+
+
+    this.itemListPayloadSize = [
+      { "id": 1, "itemName": "Small" },
+      { "id": 3, "itemName": "Large" },
+    ];
+
+    this.selectedItemsPayloadSize = [];
+
+    this.settingsPayloadSize = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Payload Size", singleSelection: false,
+    };
+
+
+    this.itemListSecurityType = [
+      { "id": 1, "itemName": "TLS" },
+      { "id": 2, "itemName": "DTLS" },
+    ];
+
+    this.selectedItemsSecurityType = [];
+
+    this.settingsSecurityType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Security Type", singleSelection: false,
+    };
+
+
+    this.itemListAuthenticationType = [
+      { "id": 1, "itemName": "Simple (Login/Password)" },
+      { "id": 2, "itemName": "Complex (SASL)" },
+    ];
+
+    this.selectedItemsAuthenticationType = [];
+
+    this.settingsAuthenticationType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select Authentication Type", singleSelection: false,
+    };
+
+
+    this.itemListQosType = [
+      { "id": 1, "itemName": "3-level QOS" },
+      { "id": 2, "itemName": "Complex" },
+    ];
+
+    this.selectedItemsQosType = [];
+
+    this.settingsQosType = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select QoS Type ", singleSelection: false,
+    };
+
+
+    this.itemListIotLevel = [
+      { "id": 1, "itemName": "Device to Device" },
+      { "id": 2, "itemName": "Device to Gateway" },
+      { "id": 3, "itemName": "Gateway to Server" },
+      { "id": 4, "itemName": "Server to Server" },
+    ];
+
+    this.selectedItemsIotLevel = [];
+
+    this.settingsIotLevel = {
+      selectAllText: 'Select All', unSelectAllText: 'UnSelect All', classes: "myclass custom-class", enableSearchFilter: false,
+      text: "Select IoT Level ", singleSelection: false,
+    };
+
+  }
+
+
+    onItemSelectCommunications(item: any)
+    {
+    }
+    OnItemDeSelectCommunications(item: any)
+    {
+    }
+    onSelectAllCommunications(items: any)
+    {
+    }
+    onDeSelectAllCommunications(items: any)
+    {
+    }
+
+
+    onItemSelectCommunicationType(item: any)
+    {
+    }
+    OnItemDeSelectCommunicationType(item: any)
+    {
+    }
+    onSelectAllCommunicationType(items: any)
+    {
+    }
+    onDeSelectAllCommunicationType(items: any)
+    {
+    }
+
+
+    onItemSelectCommunicationPattern(item: any)
+    {
+    }
+    OnItemDeSelectCommunicationPattern(item: any)
+    {
+    }
+    onSelectAllCommunicationPattern(items: any)
+    {
+    }
+    onDeSelectAllCommunicationPattern(items: any)
+    {
+    }
+
+
+    onItemSelectRequestType(item: any)
+    {
+    }
+    OnItemDeSelectRequestType(item: any)
+    {
+    }
+    onSelectAllRequestType(items: any)
+    {
+    }
+    onDeSelectAllRequestType(items: any)
+    {
+    }
+
+
+    onItemSelectHeaderSize(item: any)
+    {
+    }
+    OnItemDeSelectHeaderSize(item: any)
+    {
+    }
+    onSelectAllHeaderSize(items: any)
+    {
+    }
+    onDeSelectAllHeaderSize(items: any)
+    {
+    }
+
+
+    onItemSelectPayloadType(item: any)
+    {
+    }
+    OnItemDeSelectPayloadType(item: any)
+    {
+    }
+    onSelectAllPayloadType(items: any)
+    {
+    }
+    onDeSelectAllPayloadType(items: any)
+    {
+    }
+
+
+    onItemSelectPayloadSize(item: any)
+    {
+    }
+    OnItemDeSelectPayloadSize(item: any)
+    {
+    }
+    onSelectAllPayloadSize(items: any)
+    {
+    }
+    onDeSelectAllPayloadSize(items: any)
+    {
+    }
+
+
+    onItemSelectSecurityType(item: any)
+    {
+    }
+    OnItemDeSelectSecurityType(item: any)
+    {
+    }
+    onSelectAllSecurityType(items: any)
+    {
+    }
+    onDeSelectAllSecurityType(items: any)
+    {
+    }
+
+
+    onItemSelectAuthenticationType(item: any)
+    {
+    }
+    OnItemDeSelectAuthenticationType(item: any)
+    {
+    }
+    onSelectAllAuthenticationType(items: any)
+    {
+    }
+    onDeSelectAllAuthenticationType(items: any)
+    {
+    }
+
+
+    onItemSelectQosType(item: any)
+    {
+    }
+    OnItemDeSelectQosType(item: any)
+    {
+    }
+    onSelectAllQosType(items: any)
+    {
+    }
+    onDeSelectAllQosType(items: any)
+    {
+    }
+
+
+    onItemSelectIotLevel(item: any)
+    {
+    }
+    OnItemDeSelectIotLevel(item: any)
+    {
+    }
+    onSelectAllIotLevel(items: any)
+    {
+    }
+    onDeSelectAllIotLevel(items: any)
+    {
+    }
+
+
+
+
+
+
+
+
+
+<div class="float-left" style="width:45%;height:auto;">
+  <form [formGroup]="userForm" novalidate style="border: 1px solid #ccc; padding: 10px;">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <span style="color: red;float: right;">* required</span>
+      <input class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Communication Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListCommunicationType" [(ngModel)]="selectedItemsCommunicationType"
+                            [settings]="settingsitemListCommunicationType"
+                            (onSelect)="onItemSelectCommunicationType($event)"
+                            (onDeSelect)="OnItemDeSelectCommunicationType($event)"
+                            (onSelectAll)="onSelectAllCommunicationType($event)"
+                            (onDeSelectAll)="onDeSelectAllCommunicationType($event)" formControlName="communicationType">
+      </angular2-multiselect>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Communication Pattern</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListCommunicationPattern" [(ngModel)]="selectedItemsCommunicationPattern"
+                            [settings]="settingsCommunicationPattern"
+                            (onSelect)="onItemSelectCommunicationPattern($event)"
+                            (onDeSelect)="OnItemDeSelectCommunicationPattern($event)"
+                            (onSelectAll)="onSelectAllCommunicationPattern($event)"
+                            (onDeSelectAll)="onDeSelectAllCommunicationPattern($event)" formControlName="communicationPattern">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Request Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListRequestType" [(ngModel)]="selectedItemsRequestType"
+                            [settings]="settingsRequestType"
+                            (onSelect)="onItemSelectRequestType($event)"
+                            (onDeSelect)="OnItemDeSelectRequestType($event)"
+                            (onSelectAll)="onSelectAllRequestType($event)"
+                            (onDeSelectAll)="onDeSelectAllRequestType($event)" formControlName="requestType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Header Size</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListHeaderSize" [(ngModel)]="selectedItemsHeaderSize"
+                            [settings]="settingsHeaderSize"
+                            (onSelect)="onItemSelectHeaderSize($event)"
+                            (onDeSelect)="OnItemDeSelectHeaderSize($event)"
+                            (onSelectAll)="onSelectAllHeaderSize($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)" formControlName="headerSize">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Payload Type</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListPayloadType" [(ngModel)]="selectedItemsPayloadType"
+                            [settings]="settingsPayloadType"
+                            (onSelect)="onItemSelectPayloadType($event)"
+                            (onDeSelect)="OnItemDeSelectPayloadType($event)"
+                            (onSelectAll)="onSelectAllPayloadType($event)"
+                            (onDeSelectAll)="onDeSelectAllPayloadType($event)" formControlName="payloadType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Payload Size</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListPayloadSize" [(ngModel)]="selectedItemsPayloadSize"
+                            [settings]="settingsPayloadSize"
+                            (onSelect)="onItemSelectPayloadSize($event)"
+                            (onDeSelect)="OnItemDeSelectPayloadSize($event)"
+                            (onSelectAll)="onSelectAllPayloadSize($event)"
+                            (onDeSelectAll)="onDeSelectAllPayloadSize($event)" formControlName="payloadSize">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Security Type</label>
+      <angular2-multiselect [data]="itemListSecurityType" [(ngModel)]="selectedItemsSecurityType"
+                            [settings]="settingsSecurityType"
+                            (onSelect)="onItemSelectSecurityType($event)"
+                            (onDeSelect)="OnItemDeSelectSecurityType($event)"
+                            (onSelectAll)="onSelectAllSecurityType($event)"
+                            (onDeSelectAll)="onDeSelectAll($event)" formControlName="securityType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">Authentication Type</label>
+      <angular2-multiselect [data]="itemListAuthenticationType" [(ngModel)]="selectedItemsAuthenticationType"
+                            [settings]="settingsAuthenticationType"
+                            (onSelect)="onItemSelectAuthenticationType($event)"
+                            (onDeSelect)="OnItemDeSelectAuthenticationType($event)"
+                            (onSelectAll)="onSelectAllAuthenticationType($event)"
+                            (onDeSelectAll)="onDeSelectAllAuthenticationType($event)" formControlName="authenticationType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">QoS Type</label>
+      <angular2-multiselect [data]="itemListQosType" [(ngModel)]="selectedItemsQosType"
+                            [settings]="settingsQosType"
+                            (onSelect)="onItemSelectQosType($event)"
+                            (onDeSelect)="OnItemDeSelectQosType($event)"
+                            (onSelectAll)="onSelectAllQosType($event)"
+                            (onDeSelectAll)="onDeSelectAllQosType($event)" formControlName="qosType">
+      </angular2-multiselect>
+    </div>
+
+
+    <div class="form-group">
+      <label for="name">IoT Level</label>
+      <angular2-multiselect [data]="itemListIotLevel" [(ngModel)]="selectedItemsIotLevel"
+                            [settings]="settingsIotLevel"
+                            (onSelect)="onItemSelectIotLevel($event)"
+                            (onDeSelect)="OnItemDeSelectIotLevel($event)"
+                            (onSelectAll)="onSelectAllIotLevel($event)"
+                            (onDeSelectAll)="onDeSelectAllIotLevel($event)" formControlName="iotLevel">
+      </angular2-multiselect>
+    </div>
+
+
+    <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+  </form>
+</div>
+
+<div class="float-left" style="width:10%;height:auto;"></div>
+
+<div class="float-right" style="width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Nunc luctus in metus eget fringilla. </p>
+
+  <div>
+    <angular2-multiselect [data]="itemListCommunications" [(ngModel)]="selectedItemsCommunications"
+                          [settings]="settingsCommunications"
+                          (onSelect)="onItemSelectCommunications($event)"
+                          (onDeSelect)="OnItemDeSelectCommunications($event)"
+                          (onSelectAll)="onSelectAllCommunications($event)"
+                          (onDeSelectAll)="onDeSelectAllCommunications($event)">
+    </angular2-multiselect>
+  </div>
+
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Nunc luctus in metus eget fringilla. </p>
+</div>

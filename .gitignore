@@ -1,0 +1,13 @@
+.gradle/
+.idea/
+.project
+.settings/org.eclipse.m2e.core.pref
+release.properties
+**/*.bak
+**/*.iml
+**/hs_err_pid*.log
+**/pom.xml.*
+**/rebel.xml
+target/
+angular_dist/
+node_modules/

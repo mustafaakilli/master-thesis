@@ -1,0 +1,49 @@
+<div class="float-left" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Analyse transformation capabilities</p>
+
+  <form [formGroup]="userForm" novalidate style="border: 1px solid #ccc; padding: 10px;">
+
+
+    <div class="form-group">
+      <label for="name">Old Environment</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListOldEnvironment" [(ngModel)]="selectedItemsOldEnvironment"
+                            [settings]="settingsOldEnvironment"
+                            (onSelect)="onItemSelectOldEnvironment($event)"
+                            (onDeSelect)="OnItemDeSelectOldEnvironment($event)" formControlName="oldEnvironment">
+      </angular2-multiselect>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Old Communication</label>
+      <span style="color: red;float: right;">* required</span>
+      <span style="color: blue;float: right;">* select old environment first &nbsp;&nbsp;&nbsp;</span>
+      <angular2-multiselect [data]="itemListOldCommunication" [(ngModel)]="selectedItemsOldCommunication"
+                            [settings]="settingsOldCommunication" formControlName="oldCommunication">
+      </angular2-multiselect>
+    </div>
+
+    <div class="form-group">
+      <label for="name">New Environment</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListNewEnvironment" [(ngModel)]="selectedItemsNewEnvironment"
+                            [settings]="settingsNewEnvironment" formControlName="newEnvironment">
+      </angular2-multiselect>
+    </div>
+
+    <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+  </form>
+</div>
+
+<div class="float-left" style="width:10%;height:auto;"></div>
+
+<div class="float-right" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Analysis of transformation capabilities as follows..</p>
+
+  <div class="pre-scrollable" style="border: 1px solid #ccc; margin:0px;min-height: 150px; max-height: 300px;">
+    <h5 style="margin:10px 0px 0px 0px;color:rgb(78,132,145);font-style: oblique; font-weight: bold">Output</h5>
+    <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);" [innerHTML]="outputWindowText"></p>
+  </div>
+
+</div>
+

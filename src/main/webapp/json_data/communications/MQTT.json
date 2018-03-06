@@ -1,0 +1,62 @@
+{
+  "name" : "MQTT",
+  "baseType" : "MQTT",
+  "communicationType" : [ {
+    "id" : 1,
+    "itemName" : "Brokered Messaging"
+  } ],
+  "communicationPattern" : [ {
+    "id" : 3,
+    "itemName" : "Publish/Subscribe"
+  } ],
+  "requestType" : [ {
+    "id" : 2,
+    "itemName" : "Not Blocking (Async.)"
+  } ],
+  "headerSize" : [ {
+    "id" : 1,
+    "itemName" : "Small"
+  }, {
+    "id" : 2,
+    "itemName" : "Medium"
+  } ],
+  "payloadType" : [ {
+    "id" : 1,
+    "itemName" : "Text"
+  }, {
+    "id" : 2,
+    "itemName" : "Binary Array"
+  }, {
+    "id" : 3,
+    "itemName" : "Various MIME Types"
+  } ],
+  "payloadSize" : [ {
+    "id" : 1,
+    "itemName" : "Small"
+  }, {
+    "id" : 2,
+    "itemName" : "Large"
+  } ],
+  "securityType" : [ {
+    "id" : 2,
+    "itemName" : "TLS"
+  } ],
+  "authenticationType" : [ {
+    "id" : 1,
+    "itemName" : "Simple (Login/Password)"
+  } ],
+  "qosType" : [ {
+    "id" : 2,
+    "itemName" : "3-level QOS"
+  }, {
+    "id" : 1,
+    "itemName" : "TCP"
+  } ],
+  "iotLevel" : [ {
+    "id" : 2,
+    "itemName" : "Device to Gateway"
+  }, {
+    "id" : 3,
+    "itemName" : "Gateway to Server"
+  } ]
+}

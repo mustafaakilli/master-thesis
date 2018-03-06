@@ -1,0 +1,47 @@
+{
+  "baseEnvironment" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select Base Environment",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "supportedCommunications" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select Supported Communications",
+    "singleSelection": false,
+    "disabled": false
+  },
+  "oldEnvironment" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select Old Environment",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "oldCommunication" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select Old Communication",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "newEnvironment" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select New Environment",
+    "singleSelection": true,
+    "disabled": false
+  }
+}

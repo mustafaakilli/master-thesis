@@ -1,0 +1,77 @@
+{
+  "name" : "AMQP",
+  "baseType" : "AMQP",
+  "communicationType" : [ {
+    "id" : 1,
+    "itemName" : "Brokered Messaging"
+  } ],
+  "communicationPattern" : [ {
+    "id" : 1,
+    "itemName" : "Fire/Forget"
+  }, {
+    "id" : 2,
+    "itemName" : "Request/Response"
+  }, {
+    "id" : 3,
+    "itemName" : "Publish/Subscribe"
+  }, {
+    "id" : 4,
+    "itemName" : "Multicast"
+  } ],
+  "requestType" : [ {
+    "id" : 2,
+    "itemName" : "Not Blocking (Async.)"
+  } ],
+  "headerSize" : [ {
+    "id" : 2,
+    "itemName" : "Medium"
+  }, {
+    "id" : 3,
+    "itemName" : "Large"
+  } ],
+  "payloadType" : [ {
+    "id" : 1,
+    "itemName" : "Text"
+  }, {
+    "id" : 2,
+    "itemName" : "Binary Array"
+  }, {
+    "id" : 3,
+    "itemName" : "Various MIME Types"
+  } ],
+  "payloadSize" : [ {
+    "id" : 1,
+    "itemName" : "Small"
+  }, {
+    "id" : 2,
+    "itemName" : "Large"
+  } ],
+  "securityType" : [ {
+    "id" : 2,
+    "itemName" : "TLS"
+  } ],
+  "authenticationType" : [ {
+    "id" : 1,
+    "itemName" : "Simple (Login/Password)"
+  }, {
+    "id" : 2,
+    "itemName" : "SASL"
+  } ],
+  "qosType" : [ {
+    "id" : 1,
+    "itemName" : "TCP"
+  }, {
+    "id" : 2,
+    "itemName" : "3-level QOS"
+  }, {
+    "id" : 3,
+    "itemName" : "Complex"
+  } ],
+  "iotLevel" : [ {
+    "id" : 3,
+    "itemName" : "Gateway to Server"
+  }, {
+    "id" : 4,
+    "itemName" : "Server to Server"
+  } ]
+}

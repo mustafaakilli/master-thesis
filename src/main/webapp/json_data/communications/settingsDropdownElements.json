@@ -1,0 +1,101 @@
+{
+  "baseCommunication" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": true,
+    "text": "Select Base Communication",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "communicationType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Communication Type",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "communicationPattern" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Communication Pattern",
+    "singleSelection": false,
+    "disabled": false
+  },
+  "requestType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Request Type",
+    "singleSelection": false,
+    "disabled": false
+  },
+  "headerSize" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Header Size",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "payloadType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Payload Type",
+    "singleSelection": false,
+    "disabled": false
+  },
+  "payloadSize" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Payload Size",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "securityType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Security Type",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "authenticationType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select Authentication Type",
+    "singleSelection": true,
+    "disabled": false
+  },
+  "qosType" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select QoS Type",
+    "singleSelection": false,
+    "disabled": false
+  },
+  "iotLevel" : {
+    "selectAllText": "Select All",
+    "unSelectAllText": "UnSelect All",
+    "classes": "myclass custom-class",
+    "enableSearchFilter": false,
+    "text": "Select IoT Level",
+    "singleSelection": true,
+    "disabled": false
+  }
+}

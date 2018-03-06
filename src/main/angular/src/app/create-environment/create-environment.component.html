@@ -1,0 +1,42 @@
+<div class="float-left" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">Create a new environment </p>
+
+  <form [formGroup]="userForm" novalidate style="border: 1px solid #ccc; padding: 10px;">
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <span style="color: red;float: right;">* required</span>
+      <input [(ngModel)]="environmentName" placeholder="Please enter a unique environment name.." class="form-control" formControlName="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Supported Communications</label>
+      <span style="color: red;float: right;">* required</span>
+      <angular2-multiselect [data]="itemListSupportedCommunications" [(ngModel)]="selectedItemsSupportedCommunications"
+                            [settings]="settingsSupportedCommunications" formControlName="supportedCommunications">
+      </angular2-multiselect>
+    </div>
+
+    <button (click)="submitForm()" [disabled]="!userForm.valid" class="btn btn-success btn-block">Submit</button>
+  </form>
+</div>
+
+<div class="float-left" style="width:10%;height:auto;"></div>
+
+<div class="float-right" style="margin:20px 0px 15px 0px;width:45%;height:auto;">
+  <p class="text-left" style="margin:20px 0px 15px 0px;color:rgb(0,90,145);">.. or customize an environment </p>
+
+  <div>
+    <angular2-multiselect [data]="itemListBaseEnvironment" [(ngModel)]="selectedItemsBaseEnvironment"
+                          [settings]="settingsBaseEnvironment"
+                          (onSelect)="onItemSelectBaseEnvironment($event)"
+                          (onDeSelect)="OnItemDeSelectBaseEnvironment($event)">
+    </angular2-multiselect>
+  </div>
+
+  <div class="pre-scrollable" style="border: 1px solid #ccc; margin:50px 0px 15px 0px;min-height: 150px; max-height: 300px;">
+    <h5 style="margin:10px 0px 0px 0px;color:rgb(78,132,145);font-style: oblique; font-weight: bold">Output</h5>
+    <p class="text-left" style="margin:10px 0px 15px 0px;color:rgb(0,90,145);" [innerHTML]="outputWindowText"></p>
+  </div>
+
+</div>
