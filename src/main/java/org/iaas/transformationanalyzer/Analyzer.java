@@ -53,7 +53,7 @@ public class Analyzer
 
             if(suggestedCommunicationResult != null)
             {
-                // For debugging
+                // For debugging purposes, no delete
                 /*
                 JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
                 jsonArrayResult.put(diffPointJson);
@@ -307,7 +307,7 @@ public class Analyzer
         int i = 1;
         for (AnalysisResult analysisResult: analysisResults)
         {
-            // For debugging
+            // For debugging purposes, no delete
             //System.out.println(i + "- " + analysisResult.getName() + " " + analysisResult.getDifficultyPoint());
             i++;
         }
