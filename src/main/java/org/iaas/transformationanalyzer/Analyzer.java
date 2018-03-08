@@ -53,12 +53,14 @@ public class Analyzer
 
             if(suggestedCommunicationResult != null)
             {
+                // For debugging
+                /*
                 JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
                 jsonArrayResult.put(diffPointJson);
 
                 JSONObject diffPointHist= new JSONObject().put("History", String.join(" - ", suggestedCommunicationResult.getDifficultyCalcHistory()));
                 jsonArrayResult.put(diffPointHist);
-
+                */
 
                 TransformationPossibility transformationPossibility = suggestedCommunicationResult.getPossibility() ? TransformationPossibility.TRANSFORMATION_POSSIBLE : TransformationPossibility.TRANSFORMATION_NOT_POSSIBLE;
                 JSONObject possibilityJson = new JSONObject().put("Is possible?", transformationPossibility.getValue());
@@ -305,7 +307,8 @@ public class Analyzer
         int i = 1;
         for (AnalysisResult analysisResult: analysisResults)
         {
-            System.out.println(i + "- " + analysisResult.getName() + " " + analysisResult.getDifficultyPoint());
+            // For debugging
+            //System.out.println(i + "- " + analysisResult.getName() + " " + analysisResult.getDifficultyPoint());
             i++;
         }
 

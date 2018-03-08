@@ -3,9 +3,9 @@
 This project is developed with Intellij IDEA, Angular 5 and Java 8 
 
 ## License 
-This project is a part of Master Thesis from [IAAS](http://www.iaas.uni-stuttgart.de/) department of [University of Stuttgart](https://www.uni-stuttgart.de/). All the rights are reserved. 
-The concepts and implementations created in this thesis are compatible with the Apache v2.0 license. 
-The source codes are published under the Apache v2.0 license as well as under the Eclipse public license, [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.php)
+This project is a part of Master Thesis from [IAAS](http://www.iaas.uni-stuttgart.de/) department of [University of Stuttgart](https://www.uni-stuttgart.de/). All the rights are reserved.
+ 
+The source codes are published under the [Apache License v2.0](https://www.apache.org/licenses/LICENSE-2.0) as well as under the [Eclipse Public License v2.0](https://www.eclipse.org/legal/epl-v20.html) and under [Eclipse Contributor Agreement](http://www.eclipse.org/legal/ECA.php)
 
 Copyright (c) 2018 University of Stuttgart
 
