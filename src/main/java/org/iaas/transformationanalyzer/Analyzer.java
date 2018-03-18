@@ -131,6 +131,7 @@ public class Analyzer
             if(oldCommunication.getBaseType().equals(supportedCommItem.getBaseType()) && !oldCommunication.getBaseType().equals("NEW"))
             {
                 baseTypeFound = true;
+                // if there is a 100% same protocol, then there is no need for transformation
                 if(communicationEqualivent(oldCommunication, supportedCommItem))
                 {
                     return TransformationRequiredType.TRANSFORMATION_NOT_REQUIRED;
@@ -138,6 +139,7 @@ public class Analyzer
             }
         }
 
+        // if there is no same protocol, then check if there is a same base type and return accordingly
         return baseTypeFound ? TransformationRequiredType.TRANSFORMATION_REQUIRED_ONLY_APP_LEVEL : TransformationRequiredType.TRANSFORMATION_REQUIRED;
     }
 
