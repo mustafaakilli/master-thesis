@@ -561,8 +561,18 @@ public class Analyzer
     }
 
 
+    //region initial difficulty points for the protocols
 
-
+    /**
+     * If the protocols are not newly created, i.e., if they are from the known protocols,
+     * then return the initial difficulty points.
+     *
+     * The difficulty points are calculated according to the implementation of the communication type.
+     *
+     * @param typeOld
+     * @param typeNew
+     * @return
+     */
     private int difficultyPointsOfKnownTypes(String typeOld, String typeNew)
     {
         if(typeOld.equals(BaseType.BASE_TYPE_AMQP.getValue()) && typeNew.equals(BaseType.BASE_TYPE_STOMP.getValue()))
@@ -659,6 +669,19 @@ public class Analyzer
         return 0;
     }
 
+
+    /**
+     * If the protocols are newly created, i.e., if they are brand new protocols
+     * then return the initial difficulty points.
+     *
+     * The difficulty points are calculated according to the communication type of the communication protocols.
+     * Since the same communication types can be implemented in a very different ways, the analysis results of the newly created
+     * communication types may not be correct and the results are just guesses.
+     *
+     * @param typeOld
+     * @param typeNew
+     * @return
+     */
     private int difficultyPointsOfUnknownTypes(String typeOld, String typeNew)
     {
         if(typeOld.equals(CommTypes.COMM_TYPES_CS_BI_DIR.getValue()) && typeNew.equals(CommTypes.COMM_TYPES_CS_ONE_DIR.getValue()))
@@ -730,6 +753,10 @@ public class Analyzer
         return 150;
     }
 
+    //endregion
+
+
+    //region the string or integer values of the constants.
 
     private enum DifficultyLevels
     {
@@ -1140,4 +1167,7 @@ public class Analyzer
             }
         }
     }
+
+    //endregion
+
 }

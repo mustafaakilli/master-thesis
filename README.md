@@ -19,8 +19,8 @@ If you only need to use the application (without extending), then do the followi
     * Double click to the file in `{tomcat-installed-folder}\bin\startup`
     * Type `http://localhost:8080/transformation-analyzer/` in a browser such as Chrome.
 * <b>Usage</b>
-    * It has three tabs. Analyse, Environments, Communications
-    * In the analyse tab:
+    * It has three tabs. Analyze, Environments, Communications
+    * In the analyze tab:
         * Select old environment, then old communication list will be updated.
         * Selectable content will be from the supported communication list of the old communication.
         * Then select old communication and new environment fields too.
@@ -80,9 +80,9 @@ If you only need extend or contribute, then do the followings.
 * <b>Project Layout and important files</b>
     * The source codes are in the folder `{main-project-folder}\src\main`
     * `{main-project-folder}\src\main\angular` is for Angular part (front-end)
-        * This has three components. Analyse-Transformation, Create-Environment, Create-Communication
+        * This has three components. Analyze-Transformation, Create-Environment, Create-Communication
         * For each tab on the UI, there is one component.
-        * `rest.service.ts` makes actual requests to the java part (servlet) to get or save content.
+        * `rest.service.ts` makes actual requests to the Java part (servlet) to get or save content.
         * `rest.proxy.ts` is a bridge between `rest.service` and `components`.
         * `rest.proxy` will load everything once when the application is started. 
         * Components will use `rest.proxy` for all the information and there will be no need for further `GET` operation when components need information. 
@@ -121,15 +121,15 @@ If you only need extend or contribute, then do the followings.
  
 
 ## Further improvements
-
+* Adding more communication protocol such as industrial communication protocol.
 * In case files are not loaded, retry 5-10 times and notify user.
 * Detailed exception and error handling. 
-* More flexible folder names and deducting them automatically (now hardcoded at the beginning of the codes).
-* Delete unwanted files from interface (now manuel).
+* More flexible folder names and deducting them automatically (now hard-coded at the beginning of the codes).
+* Delete unwanted files from interface (now manual).
 * Clear OutputWindow by using a button on the UI (now refreshing page will clear).
-* Use CSS instead of Inline HTML.
+* Use CSS instead of In-line HTML.
 * Add comments to HTML and CSS files.
 * Installing latest versions of NPM and Angular using POM.xml (now it is assumed developer has already installed them).
-* Copy generated files into local file system from local server (now manuel)
+* Copy generated files into local file system from local server (now manual)
     - Option 1: Use post-deploy scripts (PowerShell, Bash, etc.) or ..
     - Option 2: Download button on the interface
