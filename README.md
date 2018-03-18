@@ -14,9 +14,10 @@ If you only need to use the application (without extending), then do the followi
 * <b>Install</b>
     * Install [JRE 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html)
     * Install a Web application container software. (Recommended: [Tomcat 9](https://tomcat.apache.org/download-90.cgi))
-    * Download the war file (transformation-analyzer.war) from the setup folder or use this [link](https://github.com/mustafaakilli/master-thesis/raw/master/setup/transformation-analyzer.war)
+    * Download the war file (transformation-analyzer.war) from the setup folder of this project or use this [link](https://github.com/mustafaakilli/master-thesis/raw/master/setup/transformation-analyzer.war)
     * Copy the war file to `{tomcat-installed-folder}\webapps\`
     * Double click to the file in `{tomcat-installed-folder}\bin\startup`
+    * `{tomcat-installed-folder}` is something like `C:\Program Files\Apache Tomcat\apache-tomcat-9.0.4`
     * Type `http://localhost:8080/transformation-analyzer/` in a browser such as Chrome.
 * <b>Usage</b>
     * It has three tabs. Analyze, Environments, Communications
