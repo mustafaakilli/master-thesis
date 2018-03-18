@@ -40,7 +40,7 @@ If you only need to use the application (without extending), then do the followi
     * For the rest of the information, you can get it interactively from the UI.
     
 ## Information for Developers
-If you only need extend or contribute, then do the followings.
+If you want to extend or contribute this project, then do the followings.
 * <b>Setting up the environment</b>
     * Install [JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
     * Install [Intellij IDEA](https://www.jetbrains.com/idea/)
@@ -54,23 +54,34 @@ If you only need extend or contribute, then do the followings.
         * However it is recommended to run it here, since it takes too much time to download all modules.
         * Otherwise, building for the first time will take too much time.
     * Open the project using Intellij IDEA.
-    * Create a new Run Configuration in Intellij IDEA.
+        * On the main Menu -> File -> Open -> Select the pom.xml file and open as project. 
+        * It will take some time to index everything.
+    * If you can't add Tomcat to Intellij IDEA, skip the next step (adding "Run Configuration").
+        * Install from Maven Menu and there will be WAR file generated. 
+        * Use the same steps as given in the "User Guide" part of this document to run it.
+    * Create a new "Run Configuration" in Intellij IDEA.
         * On the main menu, Run -> Edit Configurations.
         * Click green '+' button, select local.
         * Select `Tomcat 9` for Application Server.
-        * In the following part, put this value `http://localhost:8080/transformation-analyzer` to the "open in browser" section.
+        * In the following part, put this value `http://localhost:8080/transformation-analyzer` in the "open browser" section.
         * HTTP Port 8080 and JRE should be 1.8
-        * Click fix button, on the bottom-right, to add an artifact.
+        * Click "Configure", if "Angular CLI Framework detected" pop-up appears.
+        * If red fix button appers:
+            * Click the button, on the bottom-right, to add an artifact.
             * Select `transformationanalyzer:war exploded`
                 * Deployment tab will be opened. Write `/transformation-analyzer` to the "Application Context".
             * Optionally, add a WAR too, if you want to have WAR output too.
                 * Click green '+' button at the bottom of the window.
                 * Select build artifacts, and select `transformationanalyzer:war`
                 * Now you will have two output, when you build. The exploded version and war version.
+        * If fix button does not appear:
+            * Go to "Deployment" tab and click to green '+' button. 
+            * Select `transformationanalyzer:war exploded` and `transformationanalyzer:war`
+            * Write `/transformation-analyzer` to the "Application Context" for both artifacts.
         * Give a name and save. 
     * On the main menu click, View -> Tool Windows -> Maven Project 
     * Now Maven menu is be added to the right part of the IDE.
-    * Click `Install` for building and generating targets. 
+    * Click `Install` for building and generating targets, under "Life Cycle" of Maven Menu. 
         * It will run `npm install` and `npm build`, then it will compile java codes.
         * `Compile` from the Maven menu is not enough, thus please use `Install`.
     * After that, target folder will be generated `{main-project-folder}\target`
