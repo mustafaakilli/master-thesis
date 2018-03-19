@@ -32,11 +32,12 @@ If you only need to use the application (without extending), then do the followi
     * In the create communications tab:
         * A brand new communication can be created.
         * Or an already created communication can be edited or customized.
+    * All the names should be UNIQUE when you are creating something! Otherwise it overwrites the existing file.
     * All the files will be saved in the local server path. `{tomcat-installed-folder}\webapps\transformation-analyzer\json_data\`
         * Please carefully read `readme.txt` before doing something there.       
         * You can edit the files.
         * Create files from the UI to avoid copy paste errors.
-        * If you deploy a new version, save all the JSON files that are created from UI.
+        * If you deploy a newer version, copy all the JSON files, created on the UI, from local server path to the desired location.
     * For the rest of the information, you can get it interactively from the UI.
     
 ## Information for Developers
@@ -141,11 +142,13 @@ If you want to extend or contribute this project, then do the followings.
 
 ## Further improvements
 * Adding more communication protocol such as industrial communication protocol.
+* Check the uniqueness of the names and prevent adding it.
 * In case files are not loaded, retry 5-10 times and notify user.
 * Detailed exception and error handling. 
 * More flexible folder names and deducting them automatically (now hard-coded at the beginning of the codes).
 * Delete unwanted files from interface (now manual).
 * Clear OutputWindow by using a button on the UI (now refreshing page will clear).
+* Move all the constant values to the `Constants.java`
 * Use CSS instead of In-line HTML.
 * Add comments to HTML and CSS files.
 * Installing latest versions of NPM and Angular using POM.xml (now it is assumed developer has already installed them).
