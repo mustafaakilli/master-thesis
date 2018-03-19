@@ -121,6 +121,11 @@ If you want to extend or contribute this project, then do the followings.
             * Object <=> File conversions are currently not used, however it is already implemented in JsonReaderWriter.
     * `{main-project-folder}\src\main\webapp` contains followings:
       * `json_data` has the default JSON files.
+        * Please make sure that you read `readme.txt` of this folder.
+        * Important warning! 
+            * The newly created JSON files may be deleted if you update and redeploy the application.
+            * To be safe copy all the JSON files to your local file system before redeploying.
+            * Default JSONs will be preserved for sure.
       * `angular_dist` has the output of the build and compilation of angular source codes.
       * `WEB-INF` has `web.xml` where you can configure your WebApp.
         * Welcoming file is set as `angular_dist\index.html`
@@ -144,6 +149,6 @@ If you want to extend or contribute this project, then do the followings.
 * Use CSS instead of In-line HTML.
 * Add comments to HTML and CSS files.
 * Installing latest versions of NPM and Angular using POM.xml (now it is assumed developer has already installed them).
-* Copy generated files into local file system from local server (now manual).
+* Automatically copying added or generated JSON files to local file system from local server (now manual).
     - Option 1: Use post-deploy scripts (PowerShell, Bash, etc.) or ..
     - Option 2: Download button on the interface.
