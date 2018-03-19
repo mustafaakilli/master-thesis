@@ -57,7 +57,7 @@ If you want to extend or contribute this project, then do the followings.
         * On the main Menu -> File -> Open -> Select the pom.xml file and open as project. 
         * It will take some time to index everything.
     * If you can't add Tomcat to Intellij IDEA, skip the next step (adding "Run Configuration").
-        * Install from Maven Menu and there will be WAR file generated. 
+        * Click Install from Maven Menu and WAR file will be generated. 
         * Use the same steps as given in the "User Guide" part of this document to run it.
     * Create a new "Run Configuration" in Intellij IDEA.
         * On the main menu, Run -> Edit Configurations.
@@ -66,7 +66,7 @@ If you want to extend or contribute this project, then do the followings.
         * In the following part, put this value `http://localhost:8080/transformation-analyzer` in the "open browser" section.
         * HTTP Port 8080 and JRE should be 1.8
         * Click "Configure", if "Angular CLI Framework detected" pop-up appears.
-        * If red fix button appers:
+        * If red "fix button" appers:
             * Click the button, on the bottom-right, to add an artifact.
             * Select `transformationanalyzer:war exploded`
                 * Deployment tab will be opened. Write `/transformation-analyzer` to the "Application Context".
@@ -74,7 +74,7 @@ If you want to extend or contribute this project, then do the followings.
                 * Click green '+' button at the bottom of the window.
                 * Select build artifacts, and select `transformationanalyzer:war`
                 * Now you will have two output, when you build. The exploded version and war version.
-        * If fix button does not appear:
+        * If "fix button" does not appear:
             * Go to "Deployment" tab and click to green '+' button. 
             * Select `transformationanalyzer:war exploded` and `transformationanalyzer:war`
             * Write `/transformation-analyzer` to the "Application Context" for both artifacts.

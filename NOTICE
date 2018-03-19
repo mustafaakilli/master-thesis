@@ -18,3 +18,37 @@ Copyright (c) 2018 University of Stuttgart
 
 
 == Third-party Content
+
+Jackson  2.2.2
+* License: Apache License 2.0
+
+Jackson-Annotations Version: 2.6.0
+* License: Apache License, 2.0
+* Project: https://github.com/FasterXML/jackson-annotations
+* Source: https://github.com/FasterXML/jackson-annotations/archive/jackson-annotations-2.2.2.zip
+
+jackson-core Version 2.6.3
+* License: Apache-2.0
+
+jackson-databind Version 2.6.3
+* License: Apache-2.0
+
+jQuery Version: 3.3.1
+* License: MIT License
+* Project: http://jquery.com/
+
+bootstrap Version: 4.0.0-beta.2
+* License: MIT License
+* Project: https://getbootstrap.com/
+
+angular2-multiselect-dropdown Version: 2.5.0
+* License: MIT License
+* Project: http://cuppalabs.github.io/components/multiselectDropdown/
+
+font-awsome Version: 4.7
+* License: MIT License
+* Project: https://www.npmjs.com/package/font-awesome
+
+
+
+
