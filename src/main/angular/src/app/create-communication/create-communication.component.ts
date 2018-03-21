@@ -19,6 +19,7 @@ export class CreateCommunicationComponent implements OnInit
 
   // For output part of the UI
   outputWindowText = "";
+  inputWindowText = "";
 
   // for dropdown lists
   itemListBaseCommunication = [];
@@ -104,6 +105,9 @@ export class CreateCommunicationComponent implements OnInit
 
   submitForm()
   {
+    // show the selected content to the user
+    this.sendSelectedValuesToInputWindow(this.userForm.value);
+
     // onclick to submit, save the content of the form
     this.restProxy.saveContent(this.folderName, this.userForm.value.name, this.userForm.value);
   }
@@ -129,6 +133,40 @@ export class CreateCommunicationComponent implements OnInit
     self.outputWindowText += self.newLineStr;
 
     //this.outputWindowText += JSON.stringify(result) + this.newLineStr;
+  }
+
+  /**
+   * Print the users inputs
+   * @param inputs
+   */
+  sendSelectedValuesToInputWindow(inputs: any)
+  {
+      this.inputWindowText = "";
+      let self = this;
+
+    for(let key in inputs)
+    {
+      if (inputs.hasOwnProperty(key))
+      {
+        // print in a nice way
+        self.inputWindowText += key.bold() + ": ";
+        // inputs[key] is a dropDownItem, print its itemName value
+        if(typeof inputs[key] === 'string' )
+        {
+          self.inputWindowText += inputs[key];
+        }
+        else
+        {
+          for (let dropDownItem of inputs[key])
+          {
+
+            self.inputWindowText += dropDownItem["itemName"] + ", ";
+          }
+        }
+
+        self.inputWindowText += self.newLineStr;
+      }
+    }
   }
 
 

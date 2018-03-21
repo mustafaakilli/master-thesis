@@ -226,21 +226,7 @@ export class RestProxy
       data =>
       {
         console.log(data);
-
-        // Result is array. Convert to object
-        // It is array because we need ordered data. Order is important for the analysis report.
-        let newData = {};
-        data.forEach(function (item)
-        {
-          for(let key in item)
-          {
-            if (item.hasOwnProperty(key))
-            {
-              newData[key] = item[key];
-            }
-          }
-        });
-        this.analysisComp.sendResultToOutputWindow(newData);
+        this.analysisComp.sendResultToOutputWindow(data);
       },
       // the second argument is a function which runs on error
       err =>

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Analyses the transformation capabilities
@@ -38,58 +39,53 @@ public class Analyzer
     {
         // Set the result. Make a Json Array so that the order will be preserved.
         // Simple Json object does not preserve the order of the contents.
-        JSONArray jsonArrayResult = new JSONArray();
+        JSONArray jsonArrayFinalResult = new JSONArray();
+
+        // Holds the information about whether the transformation required or not, possible or not and the supported communications.
+        JSONArray jsonArrayHeader = new JSONArray();
+
+        // Holds the information about the results of the analysis for each communication
+        JSONArray jsonArrayAnalysisResForEachComm = new JSONArray();
+
+
+
+        // Holds the information about the results of the analysis for each communication
+        JSONArray jsonArrayAnalysisResForSuggestedComm = new JSONArray();
+
+
+        // First show the supported communications of the new environment
+        List<String> newEnvSupportedCommsNames = newEnvironmentSupportedComms.stream().map(Communication::getName).collect(Collectors.toList());
+        JSONObject newEnvSupportedCommsJson = new JSONObject().put("Supported comms. of the new env.", String.join(", ", newEnvSupportedCommsNames));
+        jsonArrayHeader.put(newEnvSupportedCommsJson);
+
 
         // Find whether the transformation is required or not
         TransformationRequiredType transformationRequiredType = getTransformationRequiredOrNot();
-        JSONObject requirementJson = new JSONObject().put("Is required?", transformationRequiredType.getValue());
-        jsonArrayResult.put(requirementJson);
+        JSONObject requirementJson = new JSONObject().put("Is transformation required?", transformationRequiredType.getValue());
+        jsonArrayHeader.put(requirementJson);
+
+        // if it is a brand new comm, then warn the user.
+        if(oldCommunication.getBaseType().equals(BaseType.BASE_TYPE_NEW.getValue()))
+        {
+            String notice = "Previos communication is a brand new communication protocol, hence the results are just guesses!";
+            JSONObject noticeJson = new JSONObject().put("Notice", notice);
+            jsonArrayHeader.put(noticeJson);
+        }
 
         // Transformation is required, so find whether it is possible or not
         if(transformationRequiredType == TransformationRequiredType.TRANSFORMATION_REQUIRED)
         {
             List<AnalysisResult> analysisResults = setAnalysisResult();
+
+            // Instead of showing the suggested communication, show all the results and let user to pick
+
+            // CURRENTLY NOT USED
             AnalysisResult suggestedCommunicationResult = getSuggestedCommunicationType(analysisResults);
+            jsonArrayAnalysisResForSuggestedComm = getAnalysisJsonFromResult(suggestedCommunicationResult);
 
-            if(suggestedCommunicationResult != null)
+            for (AnalysisResult analysisResult: analysisResults)
             {
-                // For debugging purposes, no delete
-                /*
-                JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
-                jsonArrayResult.put(diffPointJson);
-
-                JSONObject diffPointHist= new JSONObject().put("History", String.join(" - ", suggestedCommunicationResult.getDifficultyCalcHistory()));
-                jsonArrayResult.put(diffPointHist);
-                */
-
-                TransformationPossibility transformationPossibility = suggestedCommunicationResult.getPossibility() ? TransformationPossibility.TRANSFORMATION_POSSIBLE : TransformationPossibility.TRANSFORMATION_NOT_POSSIBLE;
-                JSONObject possibilityJson = new JSONObject().put("Is possible?", transformationPossibility.getValue());
-                jsonArrayResult.put(possibilityJson);
-
-                // Transformation is possible, so find the suggested type and get the find possible losses
-                if(transformationPossibility == TransformationPossibility.TRANSFORMATION_POSSIBLE)
-                {
-                    // get the suggested type and difficulty
-                    String suggestedCommunicationType = suggestedCommunicationResult.getName();
-                    JSONObject suggestedJson = new JSONObject().put("Suggested communication type", suggestedCommunicationType);
-                    jsonArrayResult.put(suggestedJson);
-
-                    // get difficulty
-                    String difficulty = suggestedCommunicationResult.getDifficulty();
-                    JSONObject difficultyJson = new JSONObject().put("Difficulty", difficulty);
-                    jsonArrayResult.put(difficultyJson);
-
-                    // get the possible loss
-                    String possibleLoss = String.join(", ", suggestedCommunicationResult.getPossibleLosses());
-                    JSONObject getPossibleLossJson = new JSONObject().put("Possible losses", possibleLoss);
-                    jsonArrayResult.put(getPossibleLossJson);
-                }
-
-                // Transformation is not possible
-                else
-                {
-                    // Do nothing here, see the paper for details and why it is not possible.
-                }
+                jsonArrayAnalysisResForEachComm.put(getAnalysisJsonFromResult(analysisResult));
             }
         }
 
@@ -99,14 +95,24 @@ public class Analyzer
             List<AnalysisResult> analysisResults = setAnalysisResult();
             AnalysisResult suggestedCommunicationResult = getSuggestedCommunicationType(analysisResults);
 
+            // Suggested communication will be the same base type with variation for sure.
             if(suggestedCommunicationResult != null)
             {
-                JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
-                jsonArrayResult.put(diffPointJson);
+                // For debugging purposes
+                //JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
+                //jsonArrayResult.put(diffPointJson);
 
-                // get the possible loss
-                JSONObject getPossibleLossJson = new JSONObject().put("Possible losses", suggestedCommunicationResult.getPossibleLosses());
-                jsonArrayResult.put(getPossibleLossJson);
+                // App-level change is required but there might be some possible losses.
+                JSONObject getPossibleLossJson = new JSONObject().put("Possible losses", String.join(", ", suggestedCommunicationResult.getPossibleLosses()));
+                jsonArrayHeader.put(getPossibleLossJson);
+
+
+                // Explain some additional info
+                String info = "Since both of the environments has the same communication protocol with different variations, the application might need an update.";
+                info += String.format(" (%s and %s, both has the same base protocol that is %s)",  oldCommunication.getName(), suggestedCommunicationResult.getName(), oldCommunication.getBaseType());
+                info += " There is no need for protocol transformation. Nevertheless, there might be some limitations.";
+                JSONObject getAdditionalInfoJson = new JSONObject().put("Additional note", info);
+                jsonArrayHeader.put(getAdditionalInfoJson);
             }
         }
 
@@ -114,9 +120,87 @@ public class Analyzer
         else
         {
             // There is nothing to do here.
+            String info = "New environment supports the previous communication.";
+            JSONObject getAdditionalInfoJson = new JSONObject().put("Additional note", info);
+            jsonArrayHeader.put(getAdditionalInfoJson);
         }
 
-        return  jsonArrayResult;
+        // Put all the results to the final result
+        // First add header, which has basic info
+        jsonArrayFinalResult.put(jsonArrayHeader);
+        if(jsonArrayAnalysisResForEachComm.length() > 0)
+        {
+            JSONObject presentResultsJson = new JSONObject().put("The analysis results for each supported comms. are as follows", " ");
+            jsonArrayHeader.put(presentResultsJson);
+            // Add the analysis results to the final list.
+            jsonArrayFinalResult.put(jsonArrayAnalysisResForEachComm);
+        }
+
+        // NOT USED
+        // Suggested communication is not shown.
+        //jsonArrayFinalResult.put(jsonArrayAnalysisResForSuggestedComm);
+
+        // return the final list
+        return jsonArrayFinalResult;
+    }
+
+
+    private JSONArray getAnalysisJsonFromResult(AnalysisResult result)
+    {
+        JSONArray jsonResult = new JSONArray();
+        if(result != null)
+        {
+            // get name
+            String name = result.getName();
+            JSONObject nameJson = new JSONObject().put("Communication protocol", name);
+            jsonResult.put(nameJson);
+
+            // if it is a brand new comm, then warn the user.
+            if(result.getBaseType().equals(BaseType.BASE_TYPE_NEW.getValue()))
+            {
+                String notice = "This is a brand new communication protocol, hence the results are just guesses!";
+                JSONObject noticeJson = new JSONObject().put("Notice", notice);
+                jsonResult.put(noticeJson);
+            }
+
+            TransformationPossibility transformationPossibility = result.getPossibility() ? TransformationPossibility.TRANSFORMATION_POSSIBLE : TransformationPossibility.TRANSFORMATION_NOT_POSSIBLE;
+            JSONObject possibilityJson = new JSONObject().put("Is transformation possible?", transformationPossibility.getValue());
+            jsonResult.put(possibilityJson);
+
+            // Transformation is possible, so find the suggested type and get the find possible losses
+            if(transformationPossibility == TransformationPossibility.TRANSFORMATION_POSSIBLE)
+            {
+                // For debugging purposes
+                /*
+                JSONObject diffPointJson = new JSONObject().put("Points", suggestedCommunicationResult.getDifficultyPoint());
+                jsonArrayResult.put(diffPointJson);
+
+                JSONObject diffPointHist = new JSONObject().put("History", String.join(" - ", suggestedCommunicationResult.getDifficultyCalcHistory()));
+                jsonArrayResult.put(diffPointHist);
+                */
+
+                // get difficulty
+                String difficulty = result.getDifficulty();
+                JSONObject difficultyJson = new JSONObject().put("Difficulty", difficulty);
+                jsonResult.put(difficultyJson);
+
+                // get the possible loss
+                String possibleLoss = String.join(", ", result.getPossibleLosses());
+                JSONObject getPossibleLossJson = new JSONObject().put("Possible losses", possibleLoss);
+                jsonResult.put(getPossibleLossJson);
+            }
+
+            // Transformation is not possible
+            else
+            {
+                // Do nothing here, see the paper for details and why it is not possible.
+                String info = "Please see the paper for details why it is not possible.";
+                JSONObject getAdditionalInfoJson = new JSONObject().put("Additional note", info);
+                jsonResult.put(getAdditionalInfoJson);
+            }
+        }
+
+        return jsonResult;
     }
 
     /**
@@ -177,6 +261,7 @@ public class Analyzer
                 analyzingNewType = false;
             }
 
+
             // To see the history of how the difficulty is calculated. Mainly used for debugging
             diffCalcHist.add("Comm: " + newComm.getName());
             diffCalcHist.add("Start: " + diffPoint);
@@ -229,8 +314,8 @@ public class Analyzer
 
             if(analyzingNewType)
             {
-                if(headerSizeDiff.size() > 0)
-                    possibleLosses.add("Some header fields");
+                // most probably there will be header losses
+                possibleLosses.add("Some header fields");
             }
             else
             {
@@ -244,7 +329,7 @@ public class Analyzer
 
 
             if(reqTypeDiff.size() > 0)
-                possibleLosses.add("Being asynchronous ");
+                possibleLosses.add("Being asynchronous");
             if(securityDiff.size() > 0)
                 possibleLosses.add("Security");
             if(authDiff.size() > 0)
@@ -276,6 +361,7 @@ public class Analyzer
 
             // now fill the result object
             res.setName(newComm.getName());
+            res.setBaseType(newComm.getBaseType());
             res.setDifficultyPoint(diffPoint);
             res.setPossibility(possibility);
             res.setDifficulty(difficulty);
@@ -309,7 +395,7 @@ public class Analyzer
         int i = 1;
         for (AnalysisResult analysisResult: analysisResults)
         {
-            // For debugging purposes, no delete
+            // For debugging purposes
             //System.out.println(i + "- " + analysisResult.getName() + " " + analysisResult.getDifficultyPoint());
             i++;
         }
@@ -857,11 +943,11 @@ public class Analyzer
             switch (this)
             {
                 case TRANSFORMATION_NOT_REQUIRED:
-                    return "It is not required";
+                    return "It is not required.";
                 case TRANSFORMATION_REQUIRED_ONLY_APP_LEVEL:
-                    return "It is required for only application level, application code must be updated.";
+                    return "It is required only for application level.";
                 case TRANSFORMATION_REQUIRED:
-                    return "It is required";
+                    return "It is required.";
                 default:
                     return "";
             }

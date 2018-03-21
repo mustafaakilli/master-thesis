@@ -66,7 +66,9 @@ export class AnalyseTransformationComponent implements OnInit
 
     // for now body is empty. Above parameters are enough
     this.restProxy.getAnalysisResult(env1, env2, oldComm,{});
-    this.initAnalyser();
+
+    // Let the values stay there so that user will see what s/he has selected.
+    //this.initAnalyser();
   }
 
   /**
@@ -80,17 +82,83 @@ export class AnalyseTransformationComponent implements OnInit
     this.outputWindowText = "";
     let self = this;
 
-    for(let key in result)
+    // Parts of the results are "header", "analysis info", and "suggested comm"
+
+    // does not have further array
+    let header = this.convertJsonArrayToJsonObject(result[0]);
+    // Print header
+    for(let key in header)
     {
-      if (result.hasOwnProperty(key))
+      if (header.hasOwnProperty(key))
       {
         // print in a nice way
-        self.outputWindowText += key.bold() + ": " + result[key] + self.newLineStr + self.newLineStr;
+        self.outputWindowText += key.bold() + ": " + header[key] + self.newLineStr;
       }
     }
 
-    //this.outputWindowText = JSON.stringify(result, null, '\t') + this.newLineStr;
+
+    let analysisInfo;
+    // Print analysis result for each comm
+    if (result.length > 1)
+    {
+      // has array of analysis results
+      analysisInfo = result[1];
+      self.outputWindowText += "-------------------------------------------" + self.newLineStr + self.newLineStr;
+
+      for(let comm of analysisInfo)
+      {
+        let commData = this.convertJsonArrayToJsonObject(comm);
+        for (let key in commData)
+        {
+          if (commData.hasOwnProperty(key))
+          {
+            // print in a nice way
+            self.outputWindowText += key.bold() + ": " + commData[key] + self.newLineStr;
+          }
+        }
+
+        self.outputWindowText += "**********************************************" + self.newLineStr;
+      }
+    }
+
+
+    let suggestedComm;
+    // Print suggested comm
+    if(result.length > 2)
+    {
+      // does not have further array
+      suggestedComm = this.convertJsonArrayToJsonObject(result[2]);
+      self.outputWindowText += "-------------------------------------------" + self.newLineStr + self.newLineStr;
+
+      for(let key in suggestedComm)
+      {
+        if (suggestedComm.hasOwnProperty(key))
+        {
+          // print in a nice way
+          self.outputWindowText += key.bold() + ": " + suggestedComm[key] + self.newLineStr;
+        }
+      }
+    }
+
   }
+
+  convertJsonArrayToJsonObject(array: any[]) : any
+  {
+    let newData = {};
+    array.forEach(function (item)
+    {
+      for(let key in item)
+      {
+        if (item.hasOwnProperty(key))
+        {
+          newData[key] = item[key];
+        }
+      }
+    });
+
+    return newData;
+  }
+
 
   /**
    * Initialize all the necessary variables. Dropdown elements, settings of drop down, etc..
@@ -98,7 +166,7 @@ export class AnalyseTransformationComponent implements OnInit
    */
   initAnalyser()
   {
-    // get the settings and namse
+    // get the settings and names
     let settings = this.restProxy.getSettings(this.folderName);
     let envNames = this.restProxy.getNames(this.folderName);
 

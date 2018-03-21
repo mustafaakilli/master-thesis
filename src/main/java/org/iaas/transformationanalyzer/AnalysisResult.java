@@ -6,6 +6,7 @@ import java.util.List;
 public class AnalysisResult
 {
     private String name;
+    private String baseType;
     private boolean possibility;
     private String difficulty;
     private int difficultyPoint;
@@ -18,6 +19,7 @@ public class AnalysisResult
         possibleLosses = new ArrayList<String>();
     }
 
+
     public String getName()
     {
         return this.name;
@@ -27,6 +29,18 @@ public class AnalysisResult
     {
         this.name = name;
     }
+
+
+    public String getBaseType()
+    {
+        return this.baseType;
+    }
+
+    public void setBaseType(String baseType)
+    {
+        this.baseType = baseType;
+    }
+
 
     public boolean getPossibility()
     {
