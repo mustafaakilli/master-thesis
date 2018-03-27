@@ -45,16 +45,10 @@
     "itemName" : "DTLS"
   } ],
   "authenticationType" : [ {
-    "id" : 2,
-    "itemName" : "SASL"
-  }, {
     "id" : 1,
     "itemName" : "Simple (Login/Password)"
   } ],
-  "qosType" : [ {
-    "id" : 2,
-    "itemName" : "3-level QOS"
-  } ],
+  "qosType" : [ ],
   "iotLevel" : [ {
     "id" : 1,
     "itemName" : "Device to Device"
